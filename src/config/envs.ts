@@ -13,7 +13,7 @@ interface EnvVars {
 const envsSchema = joi
   .object<EnvVars>({
     PORT: joi.number().required(),
-    NATS_SERVERS: joi.string().required(),
+    NATS_SERVERS: joi.array().items(joi.string()).required(),
     STRIPE_SECRET: joi.string().required(),
     STRIPE_SUCCESS_URL: joi.string().required(),
     STRIPE_CANCEL_URL: joi.string().required(),
